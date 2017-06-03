@@ -16,7 +16,7 @@ Just simple gdb switcher between peda, gef and pwndbg.
 ## Usage
 
 https://asciinema.org/a/eu8fjcp6x7ikhvmc0k6cbl14x
-<script type="text/javascript" src="https://asciinema.org/a/eu8fjcp6x7ikhvmc0k6cbl14x.js" id="asciicast-eu8fjcp6x7ikhvmc0k6cbl14x" async></script>
+<a href="https://asciinema.org/a/eu8fjcp6x7ikhvmc0k6cbl14x" target="_blank"><img src="https://asciinema.org/a/eu8fjcp6x7ikhvmc0k6cbl14x.png" /></a>
 
 ```bash
 $ gdbs

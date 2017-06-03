@@ -1,5 +1,5 @@
 # .gdbinit backup
-echo "[*] Backup ~/.gdbinit"
+echo "[+] Backup ~/.gdbinit"
 NOW=$(date +"%Y-%M-%d")
 cp ~/.gdbinit ~/.gdbinit".backup@"$NOW
 
@@ -9,24 +9,24 @@ git submodule init
 git submodule update
 
 # gef
-echo -e "\n[*] gef"
+echo -e "\n[+] gef"
 #git submodule add https://github.com/hugsy/gef.git
 wget -O ~/.gdbinit-gef.py -q https://github.com/hugsy/gef/raw/master/gef.py
 gefInit="~/.gdbinit-gef.py"
 echo "source "$gefInit > ~/.gdbinit-gef
 
-echo -e "\n[*] peda"
+echo -e "\n[+] peda"
 #git submodule add https://github.com/longld/peda.git
 pedaInit=$PWD"/peda/peda.py"
 echo "source "$pedaInit > ~/.gdbinit-peda
 
-echo -e "\n[*] pwndbg"
+echo -e "\n[+] pwndbg"
 #git submodule add https://github.com/pwndbg/pwndbg.git
 (cd pwndbg && ./setup.sh)
 pwndbgInit=$PWD"/pwndbg/gdbinit.py"
 echo "source "$pwndbgInit > ~/.gdbinit-pwndbg
 
-echo -e "\n[*] gdb-switcher configuration ~/.bashrc"
+echo -e "\n[+] gdb-switcher configuration ~/.bashrc"
 cat <<'EOF' >> ~/.bashrc
 
 # gdbs : gdb-switcher
@@ -58,3 +58,5 @@ EOF
 
 echo -e "\n[+] Source .bashrc again for using new gdbs configuration."
 source ~/.bashrc
+
+echo -e "\n[+] DONE."

@@ -3,20 +3,25 @@ echo "[*] Backup ~/.gdbinit"
 NOW=$(date +"%Y-%M-%d")
 cp ~/.gdbinit ~/.gdbinit".backup@"$NOW
 
+# submodule
+echo -e "\n[+] Update submodule : gef, gepda, pwndbg"
+git submodule init
+git submodule update
+
 # gef
 echo -e "\n[*] gef"
-git submodule add https://github.com/hugsy/gef.git
+#git submodule add https://github.com/hugsy/gef.git
 wget -O ~/.gdbinit-gef.py -q https://github.com/hugsy/gef/raw/master/gef.py
 gefInit="~/.gdbinit-gef.py"
 echo "source "$gefInit > ~/.gdbinit-gef
 
 echo -e "\n[*] peda"
-git submodule add https://github.com/longld/peda.git
+#git submodule add https://github.com/longld/peda.git
 pedaInit=$PWD"/peda/peda.py"
 echo "source "$pedaInit > ~/.gdbinit-peda
 
 echo -e "\n[*] pwndbg"
-git submodule add https://github.com/pwndbg/pwndbg.git
+#git submodule add https://github.com/pwndbg/pwndbg.git
 (cd pwndbg && ./setup.sh)
 pwndbgInit=$PWD"/pwndbg/gdbinit.py"
 echo "source "$pwndbgInit > ~/.gdbinit-pwndbg
@@ -50,3 +55,6 @@ function gdbs() {
     esac
 }
 EOF
+
+echo -e "\n[+] Source .bashrc again for using new gdbs configuration."
+source ~/.bashrc

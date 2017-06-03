@@ -8,9 +8,10 @@ Just simple gdb switcher between peda, gef and pwndbg.
 
 ## Caution !!!
 
+- This script **DOESN'T INSTALL** all requirements of each debugger. You should install them for yourself. (Especially `gef`)
+- This script just launch the default `.gdbinit` of each debugger.
 - Now this script **DOESN'T include your own configuration** in `.gdbinit`.
     - If your own script was removed, please check the backuped script `~/.gdbinit-backup@YYYYMMDD`
-- This script just launch the default `.gdbinit` of each debugger.
 
 
 ## Usage
@@ -39,45 +40,22 @@ $ gdb debug_file
 ## Envirnment 
 
 - **bash** : add `gdbs` bash function in `~/.bashrc` 
-```bash
-function gdbs() {
-    if [ "$#" -lt 2 ]; then
-        echo "[*] How to use gdbs : gdb-switcher"
-        echo "$ gdbs {gef | peda | pwndbg} debug_file"
-        return 1
-    fi
-    case $1 in
-        gef) 
-            echo "[*] gdb-switch : gef"
-            cp ~/.gdbinit-gef ~/.gdbinit
-            gdb $2
-        ;;
-        peda) 
-            echo "[*] gdb-switch : peda"
-            cp ~/.gdbinit-peda ~/.gdbinit
-            gdb $2
-        ;;
-        pwndbg) 
-            echo "[*] gdb-switch : pwndbg"
-            cp ~/.gdbinit-pwndbg ~/.gdbinit
-            gdb $2
-        ;;
-    esac
-}
-```
 - Only tested in my own envirnment
 
 ## Install
 
-- Run `setup.sh` : Install gef, peda, pwndbg as `git submobule`
-
+- Clone `gdb-switcher` repo.
 ```bash
 $ git clone https://github.com/2O2L2H/gdb-switcher.git
-$ git submodule init
-$ ./setup.sh
 ```
 
-
+- Run `setup.sh` 
+    - Install gef, peda, pwndbg as `git submobule`
+    - Configure `~/.gdbinit-{gef,peda,pwndbg}` files
+    - Add `gdbs` function in  `~/.bashrc`
+```bash
+$ ./setup.sh 
+```
 
 
 

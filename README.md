@@ -10,9 +10,7 @@ Just simple gdb switcher between peda, gef and pwndbg.
 
 - This script **DOESN'T INSTALL** all requirements of each debugger. You should install them for yourself. (Especially `gef`)
 - This script just launch the default `.gdbinit` of each debugger.
-- Now this script **DOESN'T include your own configuration** in `.gdbinit`.
-    - If your own script was removed, please check the backuped script `~/.gdbinit-backup@YYYYMMDD`
-
+- Add your own configuration in `~/.gdbinit-my`.
 
 ## Usage
 
@@ -53,11 +51,15 @@ $ git clone https://github.com/2O2L2H/gdb-switcher.git
     - Install gef, peda, pwndbg as `git submobule`
     - Configure `~/.gdbinit-{gef,peda,pwndbg}` files
     - Add `gdbs` function in  `~/.bashrc`
+
 ```bash
+$ cd gdb-switch
 $ ./setup.sh 
 ```
 
+## Customize
 
+- Edit your own configuration in `~/.gdbinit-my`.
 
 
 

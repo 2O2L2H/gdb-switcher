@@ -15,6 +15,7 @@ Just simple gdb switcher between peda, gef and pwndbg.
 
 ## Usage
 
+https://asciinema.org/a/eu8fjcp6x7ikhvmc0k6cbl14x
 <script type="text/javascript" src="https://asciinema.org/a/eu8fjcp6x7ikhvmc0k6cbl14x.js" id="asciicast-eu8fjcp6x7ikhvmc0k6cbl14x" async></script>
 
 ```bash
@@ -71,6 +72,8 @@ function gdbs() {
 - Run `setup.sh` : Install gef, peda, pwndbg as `git submobule`
 
 ```bash
+$ git clone https://github.com/2O2L2H/gdb-switcher.git
+$ git submodule init
 $ ./setup.sh
 ```
 

@@ -16,8 +16,8 @@ pedaInit=$PWD"/peda/peda.py"
 echo "source "$pedaInit > ~/.gdbinit-peda
 
 echo -e "\n[*] pwndbg"
-#git submodule add https://github.com/pwndbg/pwndbg.git
-#(cd pwndbg && ./setup.sh)
+git submodule add https://github.com/pwndbg/pwndbg.git
+(cd pwndbg && ./setup.sh)
 pwndbgInit=$PWD"/pwndbg/gdbinit.py"
 echo "source "$pwndbgInit > ~/.gdbinit-pwndbg
 

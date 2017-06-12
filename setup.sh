@@ -46,20 +46,20 @@ function gdbs() {
     	return 1
 	fi
     case $1 in
-    	gef) 
+    	gef)
     		echo "[*] gdb-switch : gef"
 	    	cp ~/.gdbinit-gef ~/.gdbinit
-    		gdb $2
+    		gdb -q $2
     	;;
-    	peda) 
+    	peda)
     		echo "[*] gdb-switch : peda"
 	    	cp ~/.gdbinit-peda ~/.gdbinit
-	    	gdb $2
+	    	gdb -q $2
     	;;
-    	pwndbg) 
+    	pwndbg)
     		echo "[*] gdb-switch : pwndbg"
 	    	cp ~/.gdbinit-pwndbg ~/.gdbinit
-	    	gdb $2
+	    	gdb -q $2
     	;;
     esac
 }

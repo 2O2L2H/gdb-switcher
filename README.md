@@ -13,6 +13,48 @@ Just simple gdb switcher between peda, gef, pwndbg and radare2
 https://asciinema.org/a/2UVFFJrr2wOpYkMKVwlqhF5Fk
 <a href="https://asciinema.org/a/2UVFFJrr2wOpYkMKVwlqhF5Fk" target="_blank"><img src="https://asciinema.org/a/2UVFFJrr2wOpYkMKVwlqhF5Fk.png" /></a>
 
+#### 1. Select debugger and launch.
+```bash
+$ gdbs executable
+
+[*] Which debugger ?
+
+1 : Legacy GDB
+2 : peda
+3 : gef
+4 : pwndbg
+5 : radare2
+
+Select {1,2,3,4,5}
+
+[+] gdb-switch => debugger
+[+] debugger execution
+Reading symbols from ./executable...done.
+
+debugger$
+```
+
+#### 2. Just configure debugger and execute gdb later.
+
+```bash
+$ gdbs
+
+[*] Which debugger ?
+
+1 : Legacy GDB
+2 : peda
+3 : gef
+4 : pwndbg
+5 : radare2
+2
+[+] gdb-switch => peda
+
+$ ❯ gdb -q ./executable
+Reading symbols from ./executable...(no debugging symbols found)...done.
+gdb-peda$ 
+```
+
+
 ## Environment
 
 Bash in Ubuntu
@@ -44,32 +86,3 @@ If you have your own configuration, add your config in `~/.gdbinit-my`.
 $ ./setup.sh
 ```
 
-## How to use.
-
-#### 1. Select debugger and launch.
-```bash
-$ gdbs executable
-
-[*] Which debugger ?
-
-1 : Legacy GDB
-2 : peda
-3 : gef
-4 : pwndbg
-5 : radare2
-
-Select {1,2,3,4,5}
-
-[+] gdb-switch => debugger
-[+] debugger execution
-Reading symbols from ./executable...done.
-
-debugger$
-```
-
-#### 2. Just configure debugger and execute gdb later.
-
-```bash
-$ gdbs
-  config gdb config
-```

@@ -3,16 +3,15 @@ echo "[+] Backup ~/.gdbinit"
 NOW=$(date +"%Y-%M-%d")
 cp ~/.gdbinit ~/.gdbinit".backup@"$NOW
 
-# submodule
-echo -e "\n[+] Update submodule : gef, gepda, pwndbg"
-git submodule init
-git submodule update
-
 # .gdbinit my configuration
 if [ ! -f ~/.gdbinit-my ]; then
     echo "[+] copy .gdbinit-my to ~"
     cp .gdbinit-my ~
 fi
+
+# Legacy gdb
+echo -e "\n[+] legacy gdb"
+echo "source ~/.gdbinit-my" > ~/.gdbinit-gdb
 
 # gef
 echo -e "\n[+] gef"
@@ -23,14 +22,11 @@ echo "source "$gefInit > ~/.gdbinit-gef
 echo "source ~/.gdbinit-my" >> ~/.gdbinit-gef
 
 echo -e "\n[+] peda"
-#git submodule add https://github.com/longld/peda.git
 pedaInit=$PWD"/peda/peda.py"
 echo "source "$pedaInit > ~/.gdbinit-peda
 echo "source ~/.gdbinit-my" >> ~/.gdbinit-peda
 
 echo -e "\n[+] pwndbg"
-#git submodule add https://github.com/pwndbg/pwndbg.git
-(cd pwndbg && ./setup.sh)
 pwndbgInit=$PWD"/pwndbg/gdbinit.py"
 echo "source "$pwndbgInit > ~/.gdbinit-pwndbg
 echo "source ~/.gdbinit-my" >> ~/.gdbinit-pwndbg
@@ -40,28 +36,46 @@ cat <<'EOF' >> ~/.bashrc
 
 # gdbs : gdb-switcher
 function gdbs() {
-	if [ "$#" -lt 2 ]; then
-    	echo "[*] How to use gdbs : gdb-switcher"
-    	echo "$ gdbs {gef | peda | pwndbg} debug_file"
-    	return 1
-	fi
-    case $1 in
-    	gef)
-    		echo "[*] gdb-switch : gef"
-	    	cp ~/.gdbinit-gef ~/.gdbinit
-    		gdb -q $2
-    	;;
-    	peda)
-    		echo "[*] gdb-switch : peda"
-	    	cp ~/.gdbinit-peda ~/.gdbinit
-	    	gdb -q $2
-    	;;
-    	pwndbg)
-    		echo "[*] gdb-switch : pwndbg"
-	    	cp ~/.gdbinit-pwndbg ~/.gdbinit
-	    	gdb -q $2
-    	;;
-    esac
+
+      echo "\n[*] Which debugger ?"
+      echo "1 : Legacy GDB"
+      echo "2 : peda"
+      echo "3 : gef"
+      echo "4 : pwndbg"
+      echo "5 : radare2"
+
+      read choice
+      case $choice in
+          1) echo "[*] gdb-switch : gdb"
+             cp ~/.gdbinit-gdb ~/.gdbinit
+             if [ "$#" -eq 2 ]; then
+                 gdb -q $2
+             fi
+             ;;
+          2) echo "[*] gdb-switch : peda"
+                 cp ~/.gdbinit-peda ~/.gdbinit
+             if [ "$#" -eq 2 ]; then
+                 gdb -q $2
+             fi
+             ;;
+          3) echo "[*] gdb-switch : gef"
+                 cp ~/.gdbinit-gef ~/.gdbinit
+             if [ "$#" -eq 2 ]; then
+                 gdb -q $2
+             fi
+             ;;
+          4) echo "[*] gdb-switch : pwndbg"
+                 cp ~/.gdbinit-pwndbg ~/.gdbinit
+             if [ "$#" -eq 2 ]; then
+                 gdb -q $2
+             fi
+             ;;
+          5) echo "[*] gdb-switch : radare2"
+             if [ "$#" -eq 2 ]; then
+                 r2 $2
+             fi
+             ;;
+      esac
 }
 EOF
 

@@ -1,10 +1,11 @@
 # gdbs : gdb-switcher
 
-Just simple gdb switcher between peda, gef and pwndbg.
+Just simple gdb switcher between peda, gef, pwndbg and radare2
 
 - [hugsy/gef: Multi-Architecture GDB Enhanced Features for Exploiters & Reverse-Engineers](https://github.com/hugsy/gef)
 - [longld/peda: PEDA - Python Exploit Development Assistance for GDB](https://github.com/longld/peda)
 - [pwndbg/pwndbg: Exploit Development and Reverse Engineering with GDB Made Easy](https://github.com/pwndbg/pwndbg)
+- [radare/radare2: unix-like reverse engineering framework and commandline tools](https://github.com/radare/radare2)
 
 ## Caution !!!
 

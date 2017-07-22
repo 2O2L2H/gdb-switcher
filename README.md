@@ -86,3 +86,16 @@ If you have your own configuration, add your config in `~/.gdbinit-my`.
 $ ./setup.sh
 ```
 
+## Uninstall
+
+Just delete the added `function gdbs()` at the end of `~/.bashrc`.
+
+```bash
+# gdbs : gdb-switcher
+function gdbs() {
+      echo -e "\n[*] Which debugger ?"
+...
+}
+```
+
+

@@ -36,39 +36,40 @@ cat <<'EOF' >> ~/.bashrc
 
 # gdbs : gdb-switcher
 function gdbs() {
-
       echo -e "\n[*] Which debugger ?"
-      echo "1 : Legacy GDB"
+      echo -e "\n1 : Legacy GDB"
       echo "2 : peda"
       echo "3 : gef"
       echo "4 : pwndbg"
       echo "5 : radare2"
 
       radare="no"
-      
+
       read choice
       case $choice in
-          1) echo "[*] gdb-switch : gdb"
+          1) echo "[+] gdb-switch => gdb"
              cp ~/.gdbinit-gdb ~/.gdbinit
              ;;
-          2) echo "[*] gdb-switch : peda"
+          2) echo "[+] gdb-switch => peda"
                  cp ~/.gdbinit-peda ~/.gdbinit
              ;;
-          3) echo "[*] gdb-switch : gef"
+          3) echo "[+] gdb-switch => gef"
                  cp ~/.gdbinit-gef ~/.gdbinit
              ;;
-          4) echo "[*] gdb-switch : pwndbg"
+          4) echo "[+] gdb-switch => pwndbg"
                  cp ~/.gdbinit-pwndbg ~/.gdbinit
              ;;
-          5) echo "[*] gdb-switch : radare2"
+          5) echo "[+] gdb-switch => radare2"
                   radare="run"
              ;;
       esac
 
       if [ "$#" -eq 1 ]; then
          if [ "$radare" = "run" ]; then
+            echo "[+] debugger execution : radare2"
             r2 $1
          else
+            echo "[+] debugger execution"
             gdb -q $1
          fi
       fi

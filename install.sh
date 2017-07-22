@@ -7,7 +7,7 @@ git submodule update
 echo -e "\n[+] Install pwndbg"
 (cd pwndbg && ./setup.sh)
 
-# radare2
+# radare2 
 echo -e "\n[+] Install radare2"
 (cd radare2 && ./sys/install.sh)
 

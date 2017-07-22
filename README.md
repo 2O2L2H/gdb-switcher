@@ -90,6 +90,10 @@ $ ./setup.sh
 
 Just delete the added `function gdbs()` at the end of `~/.bashrc`.
 
+#### 1. Check `~/.gdbinit`
+
+#### 2. Remove `function gdbs()` in `~/.bashrc`.
+
 ```bash
 # gdbs : gdb-switcher
 function gdbs() {

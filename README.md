@@ -10,8 +10,8 @@ Just simple gdb switcher between peda, gef, pwndbg and radare2
 
 ## Usage
 
-https://asciinema.org/a/2UVFFJrr2wOpYkMKVwlqhF5Fk
-<a href="https://asciinema.org/a/2UVFFJrr2wOpYkMKVwlqhF5Fk" target="_blank"><img src="https://asciinema.org/a/2UVFFJrr2wOpYkMKVwlqhF5Fk.png" /></a>
+https://asciinema.org/a/3xQ3Sh83JTcsdWOaG7ubMy66T
+[![asciicast](https://asciinema.org/a/3xQ3Sh83JTcsdWOaG7ubMy66T.svg)](https://asciinema.org/a/3xQ3Sh83JTcsdWOaG7ubMy66T)
 
 #### 1. Select debugger and launch.
 ```bash
